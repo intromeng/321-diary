@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#fffdf8" />
+    <meta name="description" content="用 3 件感恩、2 件改进和 1 句肯定整理今天的情绪。" />
+    <title>321 日记</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <button class="brand" data-view="today" aria-label="回到今天">
+          <span class="brand-mark">3·2·1</span>
+          <span>日记</span>
+        </button>
+        <nav aria-label="主要导航">
+          <button class="nav-button is-active" data-view="today">今天</button>
+          <button class="nav-button" data-view="trend">趋势</button>
+        </nav>
+      </header>
+
+      <main>
+        <section id="today-view" class="view is-active" aria-labelledby="today-title">
+          <div class="page-heading">
+            <p id="today-date" class="eyebrow"></p>
+            <h1 id="today-title">今天，心里是什么天气？</h1>
+          </div>
+
+          <form id="diary-form" novalidate>
+            <fieldset class="mood-fieldset">
+              <legend>选一个最接近的心情</legend>
+              <div id="mood-options" class="mood-options"></div>
+              <p id="mood-error" class="field-error" role="alert"></p>
+            </fieldset>
+
+            <section class="prompt-section gratitude" aria-labelledby="gratitude-title">
+              <div class="section-number">3</div>
+              <div class="section-content">
+                <h2 id="gratitude-title">件值得感恩的事</h2>
+                <p>再小的事情，也值得被看见。</p>
+                <div id="gratitude-fields" class="field-list"></div>
+              </div>
+            </section>
+
+            <section class="prompt-section improve" aria-labelledby="improve-title">
+              <div class="section-number">2</div>
+              <div class="section-content">
+                <h2 id="improve-title">件可以改进的事</h2>
+                <p>不责怪自己，只为明天留一点空间。</p>
+                <div id="improve-fields" class="field-list"></div>
+              </div>
+            </section>
+
+            <section class="prompt-section affirmation" aria-labelledby="affirmation-title">
+              <div class="section-number">1</div>
+              <div class="section-content">
+                <h2 id="affirmation-title">句给自己的肯定</h2>
+                <p>今天的你，也有做得很好的地方。</p>
+                <div id="affirmation-fields" class="field-list"></div>
+              </div>
+            </section>
+
+            <div class="form-footer">
+              <p id="form-status" class="form-status" role="status"></p>
+              <button class="primary-button" type="submit">保存今天</button>
+            </div>
+          </form>
+        </section>
+
+        <section id="success-view" class="view" aria-labelledby="success-title">
+          <div class="success-panel">
+            <div class="success-icon" aria-hidden="true">✓</div>
+            <p class="eyebrow">今天已收好</p>
+            <h1 id="success-title">谢谢你认真照顾自己的感受</h1>
+            <p id="success-copy" class="success-copy"></p>
+            <div id="mini-trend" class="mini-trend" aria-label="最近心情"></div>
+            <div class="success-actions">
+              <button class="primary-button" data-view="trend">看看心情趋势</button>
+              <button class="secondary-button" data-view="today">返回修改</button>
+            </div>
+          </div>
+        </section>
+
+        <section id="trend-view" class="view" aria-labelledby="trend-title">
+          <div class="page-heading trend-heading">
+            <div>
+              <p class="eyebrow">最近 7 次记录</p>
+              <h1 id="trend-title">心情趋势</h1>
+            </div>
+            <p id="trend-summary" class="trend-summary"></p>
+          </div>
+          <div id="trend-chart" class="trend-chart" aria-label="最近七次心情趋势图"></div>
+          <div class="history-header">
+            <h2>日记记录</h2>
+            <span id="history-count"></span>
+          </div>
+          <div id="history-list" class="history-list"></div>
+        </section>
+      </main>
+    </div>
+
+    <dialog id="entry-dialog">
+      <div class="dialog-content">
+        <div class="dialog-header">
+          <div>
+            <p id="dialog-date" class="eyebrow"></p>
+            <h2 id="dialog-title"></h2>
+          </div>
+          <button id="dialog-close" class="icon-button" aria-label="关闭">×</button>
+        </div>
+        <div id="dialog-body"></div>
+      </div>
+    </dialog>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
